@@ -1,6 +1,6 @@
 import { useState } from "react";
-import DatePicker from "react-datepicker";
 
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale } from "react-datepicker";
 import de from "date-fns/locale/de";
@@ -8,7 +8,6 @@ registerLocale("de", de);
 
 const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
-  const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const onSubmit = (e) => {
@@ -19,10 +18,10 @@ const AddTask = ({ onAdd }) => {
       return;
     }
 
-    onAdd({ text, day, reminder });
+    onAdd({ text, startDate, reminder });
 
     setText("");
-    setDay("");
+    setStartDate("");
     setReminder(false);
   };
   return (
@@ -49,6 +48,7 @@ const AddTask = ({ onAdd }) => {
           timeCaption="time"
           locale="de"
           dateFormat=" dd. MMMM yyyy HH:mm"
+          value={startDate}
         />
       </div>
       <div className="form-control form-control-check">
