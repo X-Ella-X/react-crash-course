@@ -17,6 +17,12 @@
       "day": "Jetzt",
       "reminder": false,
       "id": 4
+    },
+    {
+      "text": "School trip",
+      "day": "",
+      "reminder": false,
+      "id": 5
     }
   ]
 }

@@ -1,9 +1,16 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale, setDefaultLocale } from "react-datepicker";
+import de from "date-fns/locale/de";
+registerLocale("de", de);
 
 const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -31,15 +38,17 @@ const AddTask = ({ onAdd }) => {
           onChange={(e) => setText(e.target.value)}
         />
       </div>
-      <div className="form-control">
-        <label>Day & Time</label>
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="Add Day & Time"
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
+      <div className="form-control form-date-picker">
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          monthsShown={2}
+          showTimeSelect
+          timeFormat="HH:mm"
+          timeIntervals={15}
+          timeCaption="time"
+          locale="de"
+          dateFormat=" dd. MMMM yyyy HH:mm"
         />
       </div>
       <div className="form-control form-control-check">
