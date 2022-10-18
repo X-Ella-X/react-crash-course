@@ -10,6 +10,13 @@ const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
   const [reminder, setReminder] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+
+  const setCorrectDateFormat = (date) => {
+    //console.log(date);
+    const correctDate = new Date();
+    setStartDate(correctDate);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -47,7 +54,7 @@ const AddTask = ({ onAdd }) => {
           timeIntervals={15}
           timeCaption="time"
           locale="de"
-          dateFormat=" dd. MMMM yyyy HH:mm"
+          dateFormat="dd. MMMM yyyy HH:mm"
           value={startDate}
         />
       </div>

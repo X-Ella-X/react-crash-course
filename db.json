@@ -11,6 +11,18 @@
       "startDate": "2022-10-02T14:27:25.217Z",
       "reminder": false,
       "id": 17
+    },
+    {
+      "text": "Klassenfahrt",
+      "startDate": "2022-10-15T09:15:00.000Z",
+      "reminder": true,
+      "id": 18
+    },
+    {
+      "text": "tr",
+      "startDate": "2022-10-07T07:31:29.810Z",
+      "reminder": false,
+      "id": 19
     }
   ]
 }
